@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">InterviewTask</string>
+    <string name="strSplashText">Interview Task</string>
+
+    <string name="emailhere">Enter Your Email Here</string>
+    <string name="password">Enter Your Password</string>
+    <string name="login">Login</string>
+    <string name="phone">Enter Your Phone Here</string>
+    <string name="strForgotPassword">Forgot Password ?</string>
+</resources>

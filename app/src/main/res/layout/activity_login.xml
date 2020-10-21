@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="authViewModel"
+            type="com.example.interviewtask.auth.AuthViewModel" />
+
+        <variable
+            name="handler"
+            type="com.example.interviewtask.auth.AuthHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contraintLayoutRoot"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <!--Two way binding email-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputTypeLoginByEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20dp"
+                android:layout_marginEnd="@dimen/_20dp"
+                android:hint="@string/emailhere"
+                app:hintTextColor="@color/customerdatecolor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textEditTextLoginEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:text="@={authViewModel.email}"
+                    android:textColor="@color/text_color_light_grey"
+                    android:textSize="@dimen/font_sixteen" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Two way binding password-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputTypeLoginByPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16dp"
+                android:layout_marginStart="@dimen/_20dp"
+                android:layout_marginEnd="@dimen/_20dp"
+                android:hint="@string/password"
+                app:passwordToggleEnabled="true"
+                app:hintTextColor="@color/customerdatecolor"
+                app:layout_constraintTop_toBottomOf="@+id/inputTypeLoginByEmail">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textEditTextEmailPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:text="@={authViewModel.password}"
+                    android:textColor="@color/text_color_light_grey"
+                    android:textSize="@dimen/font_sixteen" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textViewEmailforgotpassowrd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_16dp"
+                android:text="@string/strForgotPassword"
+                android:textColor="@color/customerdatecolor"
+                android:textSize="@dimen/font_sixteen"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputTypeLoginByPassword" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/textViewSubmit"
+                android:layout_width="0dp"
+                android:layout_height="?actionBarSize"
+                android:layout_marginTop="@dimen/_40dp"
+                android:layout_marginStart="@dimen/_50dp"
+                android:layout_marginEnd="@dimen/_50dp"
+                android:background="@color/purple_500"
+                android:gravity="center"
+                android:text="@string/login"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="@dimen/font_eighteen"
+                android:onClick="@{()->handler.onLogInClicked()}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewEmailforgotpassowrd" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
